@@ -16,7 +16,7 @@ before_script:
   - sh test/test-travis.sh
 
 script:
-  - sudo docker-compose up -d
+  - sudo docker-compose -f docker-compose.yml:docker-compose.travis.yml up -d
   # Sleep for 5 seconds to allow it to start up
   - sleep 5
   # Check file exists to see if it was successfully started
