@@ -1,0 +1,20 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  # List docker-engine versions
+  - apt-cache madison docker-engine
+  # Upgrade docker-engine to specific version
+  - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=1.13.1-0~ubuntu-trusty
+  # Install docker compose
+  - sudo curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  - sudo chmod +x /usr/local/bin/docker-compose
+
+script:
+  - sudo docker-compose up -d
+  # Sleep for 5 seconds to allow it to start up
+  - sleep 5
+  # Check file exists to see if it was successfully started
+  - if [ ! -d /var/lib/mysql/mysql ]; then exit 1; fi
