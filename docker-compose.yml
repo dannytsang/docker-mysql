@@ -5,8 +5,8 @@ services:
     image: mysql:5.7
     container_name: mysql
     restart: always
-    environment:
-      - env_file: ~/config/mysql/envlist.txt
+    env_file:
+      - ~/config/mysql/envlist.txt
     volumes:
       - /var/lib/mysql:/var/lib/mysql
       - /var/log/mysql:/var/log/mysql
