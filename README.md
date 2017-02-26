@@ -1,2 +1,6 @@
 # docker-mysql
-Project to create/start MySQL server in a docker container
+Project to create/start MySQL server in a docker container. It uses the official Docker MySQL image with a helpful script to start the container.
+
+Modify config/mysql/envlist.txt with the necessary settings.
+
+Use the start.sh script to start the container.
