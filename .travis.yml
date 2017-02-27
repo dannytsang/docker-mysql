@@ -4,6 +4,8 @@ services:
   - docker
 
 before_install:
+  # Create directory for sql
+  - sudo mkdir -p /var/lib/mysql
   # List docker-engine versions
   - apt-cache madison docker-engine
   # Upgrade docker-engine to specific version
