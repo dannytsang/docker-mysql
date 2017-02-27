@@ -4,8 +4,6 @@ services:
   - docker
 
 before_install:
-  # Create directory for sql
-  - sudo mkdir -p /var/lib/mysql
   # List docker-engine versions
   - apt-cache madison docker-engine
   # Upgrade docker-engine to specific version
@@ -16,11 +14,14 @@ before_install:
 
 before_script:
   - sh test/test-travis.sh
+    # Create directory for sql
+  - sudo mkdir -p /var/lib/mysql
 
 script:
   - sudo docker-compose -f docker-compose.travis.yml up -d
   # Sleep for 5 seconds to allow it to start up
   - sleep 5
+  - if [ ! -d /var/lib/mysql ]; then exit 1; fi
 
 after_script:
   - sudo docker-compose stop
