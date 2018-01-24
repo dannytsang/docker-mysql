@@ -5,6 +5,8 @@ services:
     image: mysql:5.7
     container_name: mysql
     restart: unless-stopped
+    # Set max_allowed_packet to 16M
+    command: --max_allowed_packet=16777216
     env_file:
       - ~/config/mysql/envlist.txt
     volumes:
