@@ -1,6 +1,6 @@
 #!/bin/bash
 # Configuration. Change if necessary
-MYSQL_ROOT_FOLDER=/var/lib/mysql
+MYSQL_ROOT_FOLDER=~/contents/mysql
 MYSQL_LOG_FOLDER=/var/log/mysql
 
 # Check MYSQL storage folder exists
