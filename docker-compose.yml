@@ -4,11 +4,11 @@ services:
   db:
     image: mysql:5.7
     container_name: mysql
-    restart: always
+    restart: unless-stopped
     env_file:
       - ~/config/mysql/envlist.txt
     volumes:
-      - /var/lib/mysql:/var/lib/mysql
+      - /root/contents/mysql:/var/lib/mysql
       - /var/log/mysql:/var/log/mysql
     ports:
         - "3306:3306"
