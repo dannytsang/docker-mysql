@@ -12,3 +12,4 @@ services:
       - /var/log/mysql:/var/log/mysql
     ports:
         - "3306:3306"
+    network_mode: "bridge"
