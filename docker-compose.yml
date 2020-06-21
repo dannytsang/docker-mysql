@@ -8,8 +8,10 @@ services:
     env_file:
       - ~/config/mysql/envlist.txt
     volumes:
-      - /var/lib/mysql:/var/lib/mysql
+      - ~/contents/mysql:/var/lib/mysql
+      - /media/mysql:/var/lib/mysql
       - /var/log/mysql:/var/log/mysql
+      - ~/config/mysql/conf.d:/etc/mysql/conf.d
     ports:
         - "3306:3306"
     network_mode: "bridge"
