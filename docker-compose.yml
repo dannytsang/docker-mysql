@@ -9,7 +9,6 @@ services:
       - ~/config/mysql/envlist.txt
     volumes:
       - ~/contents/mysql:/var/lib/mysql
-      - /media/mysql:/var/lib/mysql
       - /var/log/mysql:/var/log/mysql
       - ~/config/mysql/conf.d:/etc/mysql/conf.d
     ports:
